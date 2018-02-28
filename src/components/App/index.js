@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import logo from '../../images/logo.svg';
 import { Header } from './skin.js';
-import He from '../Header';
+import Dashboard from '../Dashboard';
 
 class App extends Component {
   render() {
     return (
-      <He/>
+      <Dashboard />
     );
   }
 }
