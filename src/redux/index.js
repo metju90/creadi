@@ -1,9 +1,9 @@
 import reducerx from './testReducer';
-import reda from './aReducer';
+import insurances from './insurances';
 
 const rootReducer = {
-	reducerx,
-	reda
-}
+  reducerx,
+  insurances,
+};
 
 export default rootReducer;

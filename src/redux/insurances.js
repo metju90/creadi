@@ -1,18 +1,15 @@
 import { FETCH_INSURANCES, IS_LOADING } from '../constants';
 
 export default function (state = {
-  insurances: [],
-  selected: {
-    match_id: 0,
-    team: { id: 0, name: '' },
-  },
+  data: [],
   isLoading: false,
 }, action = {}) {
   switch (action.type) {
     case FETCH_INSURANCES:
+      console.log('wtf is the payloadd', action.payload);
       return {
         ...state,
-        insurances: action.payload.data.matches,
+        data: action.payload,
       };
     case IS_LOADING:
       return {
