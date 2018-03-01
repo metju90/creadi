@@ -1,32 +1,34 @@
 import React from 'react';
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import { getStore, init as storeInit, registerReducer } from './redux/store';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { ThemeProvider } from 'styled-components';
-import theme from './theme/index'
+import theme from './theme';
+import bootstrapCSS from './theme/bootstrap.min.css';
+import globalCSS from './theme/global.css';
 
 const getInitiatedStore = () => {
-	storeInit();
-	registerReducer;
-	console.log('gesu ommu??!');
+  storeInit();
+  registerReducer;
+  console.log('gesu ommu??!');
 
-	return getStore();
+  return getStore();
 };
 const store = getInitiatedStore();
 
-const getApp = (store) =>
-   (  <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <App/>
-        </Provider>
-      </ThemeProvider>
+const getApp = store =>
+  (<ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </ThemeProvider>
   );
 
 render(
-	getApp(store),
-    document.getElementById('root')
+  getApp(store),
+  document.getElementById('root'),
 );
 
 registerServiceWorker();

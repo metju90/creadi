@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import logo from '../../images/logo.svg';
-import { Header } from './skin.js';
-import He from '../Header';
+import Dashboard from '../Dashboard';
+import InsuranceForm from '../InsuranceForm';
 
 class App extends Component {
   render() {
-    return (
-      <He/>
-    );
+    return [
+      <Dashboard />,
+      <InsuranceForm />,
+    ];
   }
 }
 

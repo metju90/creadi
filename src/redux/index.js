@@ -1,9 +1,13 @@
 import reducerx from './testReducer';
-import reda from './aReducer';
+import insurances from './insurances';
+import insuranceForm from './insuranceForm';
+import modal from './modal';
 
 const rootReducer = {
-	reducerx,
-	reda
-}
+  reducerx,
+  insurances,
+  insuranceForm,
+  modal,
+};
 
 export default rootReducer;
