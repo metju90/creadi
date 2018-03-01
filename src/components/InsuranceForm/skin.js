@@ -41,6 +41,7 @@ export const InputTitle = () => css`
 	margin-top: 30px;
     font-weight: 500;
     font-size: 16px;
+    display: block;
 `;
 
 export const Submit = ({ theme }) => css`
@@ -61,8 +62,8 @@ export const Select = () => css`
    font-size: 14px;
    height: 29px;
    padding: 5px;
-   width: 378px;
-   *width: 350px;
+   width: 260px;
+   cursor: pointer;
 `;
 
 export const SelectWrapper = () => css`

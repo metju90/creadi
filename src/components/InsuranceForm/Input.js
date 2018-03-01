@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { capitalizeFirstLetter } from '../../utils';
 import * as skin from './skin';
 
-const InputTitle = styled.div`${skin.InputTitle}`;
+const InputTitle = styled.label`${skin.InputTitle}`;
 const StyledInput = styled.input`${skin.Input}`;
 const Select = styled.select`${skin.Select}`;
 const SelectWrapper = styled.div`${skin.SelectWrapper}`;
@@ -11,20 +11,21 @@ const buildOptions = options => options.map((o, i) => <option key={i} value={o.p
 
 
 const Input = (props) => {
+  const { name } = props.input;
   if (props.selectable) {
-    const { options, name } = props;
+    const { options } = props;
     console.log('ass', options);
     return [
-      <InputTitle>{capitalizeFirstLetter(name)}:</InputTitle>,
+      <InputTitle htmlFor={name}>{capitalizeFirstLetter('aaa')}:</InputTitle>,
       <SelectWrapper>
-        <Select {...name}> {buildOptions(options)} </Select>
+        <Select {...props.input} {...props}> {buildOptions(options)} </Select>
       </SelectWrapper>,
     ];
   }
 
   return [
-    <InputTitle>{capitalizeFirstLetter(props.name)}:</InputTitle>,
-    <StyledInput {...props} />,
+    <InputTitle htmlFor={name}>{capitalizeFirstLetter(name)}:</InputTitle>,
+    <StyledInput {...props} {...props.input} />,
   ];
 };
 

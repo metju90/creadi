@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import FontAwesome from 'react-fontawesome';
+import { Field, reduxForm } from 'redux-form'
 import { toggleModal } from '../../actions';
 import insuranceIcon from '../../images/insurance.png';
 import * as skin from './skin';
@@ -17,7 +18,7 @@ const Submit = styled.button`${skin.Submit}`;
 class InsuranceForm extends Component {
  
   onCloseModal = () => this.props.toggleModal();
-  
+  // Forced to use inline css for the Modal. CSS-in-JS incompatibility
   render() {
     const { isOpen, data } = this.props;
     console.log('datta', data);
@@ -41,8 +42,8 @@ class InsuranceForm extends Component {
               <HeaderTitle> Add new insurance</HeaderTitle>
           </Header>
           <Form>
-            <Input name="title" options={data} selectable />
-            <Input name="premium" placeholder="5,000" />
+            <Field component={Input} id="title" name="titleID" options={data} selectable />
+            <Field component={Input} id="premium" name="premium" placeholder="5,000" />
             <Submit onClick={onSubmit}> Send now! </Submit>
           </Form>
         </Modal>
