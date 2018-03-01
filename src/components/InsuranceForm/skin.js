@@ -42,3 +42,36 @@ export const InputTitle = () => css`
     font-weight: 500;
     font-size: 16px;
 `;
+
+export const Submit = ({ theme }) => css`
+    background: ${theme.buttonSuccess};
+	text-transform: uppercase;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 2px;
+    width: 140px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    float: right;
+    outline:none;
+`;
+
+export const Select = () => css`
+    background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px;
+   width: 378px;
+   *width: 350px;
+`;
+
+export const SelectWrapper = () => css`
+    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+   background-color: #3b8ec2;
+    -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+`;

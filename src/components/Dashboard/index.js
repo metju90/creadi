@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Tile from '../Tile';
 import { fetchInsurances, toggleModal } from '../../actions';
-import AddNewButton from '../AddNewButton';
+import AddCTA from './AddCTA';
 import * as skin from './skin';
 
 const DashboardWrapper = styled.div`${skin.Dashboard};`;
@@ -17,11 +17,6 @@ class Dashboard extends Component {
   	}
   }
 
-  // if state change
-  // shouldComponentUpdate (nextProps, prevProps) {
-
-  // }
-
   render() {
   	// the following prop is being passed
   	// to test storybook with a variant.
@@ -31,7 +26,7 @@ class Dashboard extends Component {
         {}
         <Tile title="Atlas" premium="CHF 50" />
         <Tile title="Mamo" premium="CHF 130" />
-        <AddNewButton
+        <AddCTA
           size="2x"
           name="plus"
           onClick={toggleModal}

@@ -10,3 +10,12 @@ export const Dashboard = () => css`
   position: relative;
 `;
 
+export const AddNewButton = ({ theme }) => css`
+    position: absolute;
+    background: ${theme.buttonSuccess};
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    padding: 15px;
+    cursor: pointer;
+`;

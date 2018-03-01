@@ -5,75 +5,57 @@ import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import FontAwesome from 'react-fontawesome';
 import { toggleModal } from '../../actions';
-import * as skin from './skin';
-import closeButtonPath from '../../images/close.svg';
 import insuranceIcon from '../../images/insurance.png';
-import { capitalizeFirstLetter } from '../../utils';
-// const InsuranceFormWrapper = styled.div`${skin.InsuranceForm};`;
+import * as skin from './skin';
+import Input from './Input';
+import Header from './Header';
+import Form from './Form';
 
-const StyledHeader = styled.div`${skin.Header}`;
-const StyledInput = styled.input`${skin.Input}`;
-const StyledForm = styled.form`${skin.Form}`;
 const HeaderTitle = styled.span`${skin.HeaderTitle}`;
-const InputTitle = styled.div`${skin.InputTitle}`;
+const Submit = styled.button`${skin.Submit}`;
 
 class InsuranceForm extends Component {
  
   onCloseModal = () => this.props.toggleModal();
   
   render() {
-    const { isOpen } = this.props;
+    const { isOpen, data } = this.props;
+    console.log('datta', data);
     return (
-        <Modal 
-              open={isOpen}
-              onClose={this.onCloseModal}
-              closeIconSvgPath={closeButtonPath}
-              styles={{
-                modal: {
-                  width: "400px",
-                  "text-align": "center",
-                  "padding": "30px",
-                }
-              }}
+        <Modal open={isOpen}
+               onClose={this.onCloseModal}
+               styles={{
+                 modal: {
+                   width: "400px",
+                   "text-align": "center",
+                   "padding": "30px",
+                 }
+               }}
               little>
-          <Header />
+          <Header>
+              <img width="35px"
+                height="35px"
+                style={{ marginRight: '10px' }}
+                src={insuranceIcon}
+              />
+              <HeaderTitle> Add new insurance</HeaderTitle>
+          </Header>
           <Form>
-            <Input 
-                name="title"
-                placeholder="Insurance name"  />
-
-            <Input 
-                name="premium"
-                placeholder="5,000" />
+            <Input name="title" options={data} selectable />
+            <Input name="premium" placeholder="5,000" />
+            <Submit onClick={onSubmit}> Send now! </Submit>
           </Form>
         </Modal>
     );
   }
 }
 
-const Header = () => (
-  <StyledHeader>
-     <img 
-          width="35px"
-          height="35px"
-          style={{marginRight: "10px"}}
-          src={insuranceIcon} />
-     <HeaderTitle>Add new insurance</HeaderTitle>
-  </StyledHeader>
-);
-
-const Form = props => <StyledForm {...props} />
-
-const Input = props => [
-  <InputTitle>{capitalizeFirstLetter(props.name)}:</InputTitle>,
-  <StyledInput {...props} />,
-]
-
-// InsuranceForm.propTypes = {
-//   isBackgroundRed: PropTypes.bool,
-// };
+const onSubmit = e => {
+  e.preventDefault();
+}
 
 const mapStateToProps = state => ({
+  ...state.insurances,
   ...state.modal,
 });
 

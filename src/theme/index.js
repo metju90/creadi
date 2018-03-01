@@ -13,4 +13,5 @@ export default {
     '#910091',
     '#a05000',
   ],
+  buttonSuccess: '#8cbf26',
 };
