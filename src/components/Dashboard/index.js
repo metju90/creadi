@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import * as skin from './skin.js';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Tile from '../Tile';
-import fetchInsurances from '../../actions/insurances';
+import { fetchInsurances, toggleModal } from '../../actions';
+import AddNewButton from '../AddNewButton';
+import * as skin from './skin';
 
 const DashboardWrapper = styled.div`${skin.Dashboard};`;
 
@@ -16,29 +17,41 @@ class Dashboard extends Component {
   	}
   }
 
+  // if state change
+  // shouldComponentUpdate (nextProps, prevProps) {
+
+  // }
+
   render() {
   	// the following prop is being passed
   	// to test storybook with a variant.
-    const { isBackgroundRed } = this.props;
+    const { isBackgroundRed, toggleModal, insurances } = this.props;
     return (
       <DashboardWrapper isBackgroundRed={isBackgroundRed}>
+        {}
         <Tile title="Atlas" premium="CHF 50" />
         <Tile title="Mamo" premium="CHF 130" />
+        <AddNewButton
+          size="2x"
+          name="plus"
+          onClick={toggleModal}
+        />
       </DashboardWrapper>
     );
   }
 }
 
-Dashboard.propsType = {
+Dashboard.propTypes = {
   isBackgroundRed: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
-  ...state,
-});
+// const mapStateToProps = state => ({
+//   insurancesL: state.insurances.data,
+// });
 
 const mapDispacthToProps = {
   fetchInsurances,
+  toggleModal,
 };
 
-export default connect(mapStateToProps, mapDispacthToProps)(Dashboard);
+export default connect(null, mapDispacthToProps)(Dashboard);

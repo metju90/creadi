@@ -7,4 +7,6 @@ export const Dashboard = () => css`
   display: flex;
   justify-content: space-around;  
   margin: 40px;
+  position: relative;
 `;
+
