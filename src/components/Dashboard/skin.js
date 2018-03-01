@@ -7,4 +7,15 @@ export const Dashboard = () => css`
   display: flex;
   justify-content: space-around;  
   margin: 40px;
+  position: relative;
+`;
+
+export const AddNewButton = ({ theme }) => css`
+    position: absolute;
+    background: ${theme.buttonSuccess};
+    border-radius: 50%;
+    bottom: 0;
+    right: 0;
+    padding: 15px;
+    cursor: pointer;
 `;

@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 export const TileWrapper = ({ theme }) => {
-  const randomNumber = Math.floor((Math.random() * 6));
+  const randomNumber = Math.floor((Math.random() * 9));
   return css`
   		text-align: center;
   		cursor: pointer;
