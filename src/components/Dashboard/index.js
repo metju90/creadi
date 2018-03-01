@@ -18,7 +18,7 @@ class Dashboard extends Component {
   }
 
   render() {
-  	// the following prop is being passed
+  	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
     const { isBackgroundRed, toggleModal, insurances } = this.props;
     return (

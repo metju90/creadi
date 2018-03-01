@@ -1,13 +1,13 @@
-import { IS_LOADING } from '../constants';
+import { TOGGLE_MODAL } from '../constants';
 
 export default function (state = {
   isOpen: false,
 }, action = {}) {
   switch (action.type) {
-    case IS_LOADING:
+    case TOGGLE_MODAL:
       return {
         ...state,
-        isLoading: !state.isLoading,
+        isOpen: action.payload,
       };
   }
   return state;

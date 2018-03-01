@@ -54,6 +54,17 @@ export const Submit = ({ theme }) => css`
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     float: right;
     outline:none;
+    transition: color .3s, background .3s;
+    cursor: pointer;
+    
+    &:disabled {
+      background: rgba(0,0,0,0.5);
+      color: #fff;;
+    }
+
+    &:hover {
+      cursor: not-allowed;
+    }
 `;
 
 export const Select = () => css`

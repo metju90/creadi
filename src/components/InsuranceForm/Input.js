@@ -11,21 +11,35 @@ const buildOptions = options => options.map((o, i) => <option key={i} value={o.p
 
 
 const Input = (props) => {
-  const { name } = props.input;
-  if (props.selectable) {
-    const { options } = props;
-    console.log('ass', options);
+  const {
+    id,
+    input: { name },
+    meta: {
+      touched, error, warning,
+    },
+    options,
+    selectable,
+  } = props;
+  console.log('hmmm ', selectable, touched, error, warning);
+  if (selectable) {
     return [
-      <InputTitle htmlFor={name}>{capitalizeFirstLetter('aaa')}:</InputTitle>,
+      <InputTitle htmlFor={id}>{capitalizeFirstLetter(name)}:</InputTitle>,
       <SelectWrapper>
-        <Select {...props.input} {...props}> {buildOptions(options)} </Select>
+        <Select {...props.input} {...props}>
+          <option value="">Please select...</option>
+          {buildOptions(options)}
+        </Select>
       </SelectWrapper>,
     ];
   }
 
   return [
-    <InputTitle htmlFor={name}>{capitalizeFirstLetter(name)}:</InputTitle>,
+    <InputTitle htmlFor={id}>{capitalizeFirstLetter(name)}:</InputTitle>,
     <StyledInput {...props} {...props.input} />,
+    <span>{touched &&
+          ((error && <span style={{ color: 'red' }}>{error}</span>) ||
+            (warning && <span style={{ color: 'red' }}>{warning}</span>))}
+    </span>,
   ];
 };
 
