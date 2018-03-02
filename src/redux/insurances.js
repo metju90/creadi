@@ -6,7 +6,6 @@ export default function (state = {
 }, action = {}) {
   switch (action.type) {
     case FETCH_INSURANCES:
-      console.log('wtf is the payloadd', action.payload);
       return Object.assign({}, state, { insuranceList: action.payload });
 
     case FETCH_INSURANCES_IS_LOADING:

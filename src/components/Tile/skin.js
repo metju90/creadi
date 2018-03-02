@@ -22,13 +22,16 @@ export const Premium = () => css`
 `;
 export const DeleteWrapper = () => css`
  	height: 130px;;
- 	width: 80px;
+ 	width: 70px;
  	background: #d9534f;
 	background-image: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 100%);
-	transform: translateX(80px);
+	border-radius: 0 15px 0 0;
+	transform: translateX(70px);
     opacity: 1;
     position: absolute;
     right: 0;
+    cursor: pointer;
+    display: flex;
  `;
 
 export const Wrapper = () => css`

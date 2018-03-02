@@ -8,7 +8,6 @@ const validate = (values) => {
   if (!values.title || !!values.title === false) {
   	errors.title = 'Please select insurance.';
   }
-  console.log('errprsss', errors);
   return errors;
 };
 

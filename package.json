@@ -16,7 +16,6 @@
     "redux": "^3.7.2",
     "redux-form": "^7.2.3",
     "redux-thunk": "^2.2.0",
-    "reshake": "^1.0.8",
     "styled-components": "^3.1.6"
   },
   "scripts": {
