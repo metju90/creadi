@@ -1,7 +1,11 @@
 html {
-	background-color: #fff;
+	background-color: #17161c;
+	height: 100%;
 }
-
 body {
-	background-color: inherit;
+	background: inherit;
+	margin: 0;
+}
+html, body, #root {
+	height: 100%;
 }

@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { HashLoader } from 'react-spinners';
 import Tile from '../Tile';
-import { fetchInsurances, toggleModal } from '../../actions';
-import AddCTA from './AddCTA';
+import { fetchInsurances } from '../../actions';
+import EmptyMessage from './EmptyMessage';
 import * as skin from './skin';
 
 const DashboardWrapper = styled.div`${skin.Dashboard};`;
+const FullPageLoaderWrapper = styled.div`${skin.FullPageLoader}`;
+
+const FullPageLoader = ({props}) => (
+    <FullPageLoaderWrapper {...props} >
+        <div style={{margin:"auto"}}>
+            <HashLoader  size="80" color="#000" />
+        </div>
+    </FullPageLoaderWrapper>
+  );
 
 class Dashboard extends Component {
   componentDidMount() {
@@ -17,36 +27,38 @@ class Dashboard extends Component {
   	}
   }
 
+  renderTiles = insurances => insurances.map(t => <Tile {...t} />)
+
   render() {
-  	// the following prop is being passed
+  	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
-    const { isBackgroundRed, toggleModal, insurances } = this.props;
-    return (
-      <DashboardWrapper isBackgroundRed={isBackgroundRed}>
-        {}
-        <Tile title="Atlas" premium="CHF 50" />
-        <Tile title="Mamo" premium="CHF 130" />
-        <AddCTA
-          size="2x"
-          name="plus"
-          onClick={toggleModal}
-        />
+    const { isBackgroundRed, currentUserInsurances, isAnythingLoading } = this.props;
+   return (
+      <DashboardWrapper className="container" isBackgroundRed={isBackgroundRed}>
+        <FullPageLoader style={isAnythingLoading ? opacity : {}} />
+        <div className="row" style={{margin: "auto"}}>
+        {currentUserInsurances.length ? this.renderTiles(currentUserInsurances) : <EmptyMessage />}
+        </div>
       </DashboardWrapper>
     );
   }
+}
+
+const opacity = {
+  opacity: "1 !important;"
 }
 
 Dashboard.propTypes = {
   isBackgroundRed: PropTypes.bool,
 };
 
-// const mapStateToProps = state => ({
-//   insurancesL: state.insurances.data,
-// });
+const mapStateToProps = state => ({
+  currentUserInsurances: state.currentUser.insurances,
+  isAnythingLoading: state.currentUser.isLoading || state.insurances.isLoading,
+});
 
 const mapDispacthToProps = {
   fetchInsurances,
-  toggleModal,
 };
 
-export default connect(null, mapDispacthToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispacthToProps)(Dashboard);

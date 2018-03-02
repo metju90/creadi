@@ -23,13 +23,11 @@ export const Input = () => css`
     width: 100%;
     margin-top: 10px;
     outline: none;
-    background: rgba(0,0,0,0.2);
+    background: #17161c;
     height: 30px;
     padding: 4px;
+    color:#fff;
 
-    &:focus {
-    	background: rgba(0,0,0,0.2);
-    }
 `;
 
 export const HeaderTitle = () => css`
@@ -41,6 +39,7 @@ export const InputTitle = () => css`
 	margin-top: 30px;
     font-weight: 500;
     font-size: 16px;
+    display: block;
 `;
 
 export const Submit = ({ theme }) => css`
@@ -53,6 +52,15 @@ export const Submit = ({ theme }) => css`
     box-shadow: 0 0 10px rgba(0,0,0,0.4);
     float: right;
     outline:none;
+    transition: color .3s, background .3s;
+    cursor: pointer;
+    color:#fff;
+    
+    &:disabled {
+      background: rgba(0,0,0,0.5);
+      color: #fff;;
+      cursor: not-allowed;
+    }
 `;
 
 export const Select = () => css`
@@ -61,8 +69,8 @@ export const Select = () => css`
    font-size: 14px;
    height: 29px;
    padding: 5px;
-   width: 378px;
-   *width: 350px;
+   width: 260px;
+   cursor: pointer;
 `;
 
 export const SelectWrapper = () => css`
@@ -70,8 +78,9 @@ export const SelectWrapper = () => css`
    height: 29px;
    overflow: hidden;
    width: 240px;
-   background-color: #3b8ec2;
+   background-color: #17161c;
     -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
+    color:#fff;
 `;

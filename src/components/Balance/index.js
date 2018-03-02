@@ -1,0 +1,26 @@
+import React from 'react';
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import _ from 'lodash';
+import * as skin from './skin';
+
+const Wrapper = styled.div`${skin.Wrapper}`;
+const Text = styled.span`${skin.Text}`;
+const BalanceText = styled.span`${skin.BalanceText}`;
+
+const Balance = ({ balance }) => (
+  <Wrapper>
+    {balance ? <BalanceText>
+    				Insurance expenses:
+      <div>{`CHF ${balance}`}</div>
+    </BalanceText>
+			 : <Text>We are worrying about you.</Text> }
+
+  </Wrapper>
+
+);
+
+const mapStateToProps = state => ({
+  	balance: state.currentUser.totalPremium || undefined,
+});
+export default connect(mapStateToProps, null)(Balance);

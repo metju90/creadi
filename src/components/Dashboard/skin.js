@@ -6,16 +6,32 @@ export const Dashboard = () => css`
   padding: 10px;
   display: flex;
   justify-content: space-around;  
-  margin: 40px;
   position: relative;
+  height: 100%;
 `;
 
-export const AddNewButton = ({ theme }) => css`
-    position: absolute;
-    background: ${theme.buttonSuccess};
-    border-radius: 50%;
-    bottom: 0;
-    right: 0;
-    padding: 15px;
-    cursor: pointer;
+export const Text = () => css`
+  font-size: 70px;
+  font-weight: 400;
+`;
+
+export const Wrapper = () => css`
+  text-align: center;
+  margin: auto;
+`;
+
+export const Emoji = () => css`
+`;
+
+export const FullPageLoader = () => css`
+  position: fixed;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 1;
 `;
