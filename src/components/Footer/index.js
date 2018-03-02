@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { toggleModal } from '../../actions';
 import { AddCTAText, AddCTAButton } from '../AddCTA';
-import { Shake } from 'reshake';
 import * as skin from './skin';
+import Balance from '../Balance';
 
 const FooterWrapper = styled.div`${skin.FooterWrapper}`;
 const ContentWrapper = styled.div`${skin.ContentWrapper}`;
@@ -14,12 +15,12 @@ const Footer = (props) => {
   return (
     <FooterWrapper>
       <ContentWrapper>
-        <div> your balance is xxxx</div>
+        <Balance />
         <div> | </div>
         {isUserInsuranceEmpty ?
           <AddCTAText onClick={toggleModal} />
-			:
-          <AddCTAButton name="plus" onClick={toggleModal} />
+			     :
+          <AddCTAButton name="plus" onClick={toggleModal}>Add more</AddCTAButton>
         	 }
       </ContentWrapper>
     </FooterWrapper>

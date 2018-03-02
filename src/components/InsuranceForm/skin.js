@@ -23,13 +23,11 @@ export const Input = () => css`
     width: 100%;
     margin-top: 10px;
     outline: none;
-    background: rgba(0,0,0,0.2);
+    background: #17161c;
     height: 30px;
     padding: 4px;
+    color:#fff;
 
-    &:focus {
-    	background: rgba(0,0,0,0.2);
-    }
 `;
 
 export const HeaderTitle = () => css`
@@ -56,6 +54,7 @@ export const Submit = ({ theme }) => css`
     outline:none;
     transition: color .3s, background .3s;
     cursor: pointer;
+    color:#fff;
     
     &:disabled {
       background: rgba(0,0,0,0.5);
@@ -79,8 +78,9 @@ export const SelectWrapper = () => css`
    height: 29px;
    overflow: hidden;
    width: 240px;
-   background-color: #3b8ec2;
+   background-color: #17161c;
     -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
+    color:#fff;
 `;

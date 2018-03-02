@@ -22,3 +22,16 @@ export const Wrapper = () => css`
 
 export const Emoji = () => css`
 `;
+
+export const FullPageLoader = () => css`
+  position: fixed;
+  top:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 1;
+`;

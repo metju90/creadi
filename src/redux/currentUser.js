@@ -6,11 +6,9 @@ import {
   USER_REMOVE_INSURANCE,
 } from '../constants';
 
-const sum = (total, num) => total + num;
-
 const sumUpPremium = insurances => insurances
   .map(i => Number(i.premium))
-  .reduce((totalPremium, premium) => totalPremium + premium, 0);
+  .reduce((accumilatedPremium, premium) => accumilatedPremium + premium, 0);
 
 export default function (state = {
   insurances: [],
@@ -32,9 +30,11 @@ export default function (state = {
         isLoading: action.payload,
       };
     case USER_REMOVE_INSURANCE:
+      console.log(action.payload);
       return {
         ...state,
-        insurances: action.payload,
+        insurances: action.payload.insurances,
+        totalPremium: action.payload.premium,
       };
     case CALC_TOTAL_PREMIUM:
       return {

@@ -18,7 +18,7 @@ export const Title = () => css`
 `;
 
 export const Premium = () => css`
-	
+	font-size: 30px;
 `;
 export const DeleteWrapper = () => css`
  	height: 130px;;

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { Field } from 'redux-form';
-import { HashLoader } from 'react-spinners';
 import { toggleModal, addInsurance } from '../../actions';
 import insuranceIcon from '../../images/insurance.png';
 import * as skin from './skin';
@@ -14,7 +13,7 @@ import Form from './Form';
 const HeaderTitle = styled.span`${skin.HeaderTitle}`;
 const Submit = styled.button`${skin.Submit}`;
 
-const InsuranceForm = ({ ...props }) => {
+const InsuranceForm = (props) => {
   const {
     isOpen,
     insuranceList,
@@ -25,14 +24,6 @@ const InsuranceForm = ({ ...props }) => {
     addInsurance,
     isUserDataAddedInStore,
   } = props;
-
-  if (isUserDataAddedInStore) {
-    return (
-      <Modal open={isOpen} onClose={toggleModal} styles={{ ...modalStlyed }} little>
-        <HashLoader style={{ margin: 'auto' }} />
-      </Modal>
-    );
-  }
 
   return (
     <Modal open={isOpen} onClose={toggleModal} styles={{ ...modalStlyed }} little>

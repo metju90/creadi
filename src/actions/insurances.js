@@ -24,10 +24,11 @@ const fetchInsurances = () => (dispatch, state) => {
 
 const addInsurance = e => (dispatch, getState) => {
   e.preventDefault();
-  const { values } = getState().form.newInsurance;
   dispatch({ type: USER_INSURANCE_IS_LOADING, payload: true });
-  // to mimic API latency
-  const addDataToTheStore = new Promise((resolve, reject) => {
+  dispatch({ type: TOGGLE_MODAL });
+  const { values } = getState().form.newInsurance; // values from redux-form
+
+  const addDataToTheStore = new Promise((resolve, reject) => { // to mimic API latency
   	setTimeout(() => {
 	  	dispatch({ type: USER_ADD_INSURANCE, payload: values });
 	  	resolve(true);
@@ -38,7 +39,6 @@ const addInsurance = e => (dispatch, getState) => {
     .then(() => {
       dispatch({ type: CALC_TOTAL_PREMIUM });
       dispatch({ type: USER_INSURANCE_IS_LOADING, payload: false });
-      dispatch({ type: TOGGLE_MODAL, payload: false });
     });
 };
 
@@ -46,16 +46,22 @@ const removeInsurance = insuranceTitleToDelete => (dispatch, getState) => {
   dispatch({ type: USER_INSURANCE_IS_LOADING, payload: true });
 
   const userInsurances = getState().currentUser.insurances;
-  console.log('ok testing!!! ', userInsurances, insuranceTitleToDelete);
+  let { totalPremium } = getState().currentUser;
+
   const getUpdatedUserInsurance = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(userInsurances.filter(i => i.title !== insuranceTitleToDelete));
+      resolve(userInsurances.filter((i) => {
+        if (i.title === insuranceTitleToDelete) {
+          totalPremium -= Number(i.premium);
+          return false;
+        }
+        return true;
+      }));
     }, 2500);
   });
 
   getUpdatedUserInsurance.then((insurances) => {
-    console.log('hmmmm ', insurances);
-    dispatch({ type: USER_REMOVE_INSURANCE, payload: insurances });
+    dispatch({ type: USER_REMOVE_INSURANCE, payload: { insurances, totalPremium } });
     dispatch({ type: USER_INSURANCE_IS_LOADING, payload: false });
   });
 };

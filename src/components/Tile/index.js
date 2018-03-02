@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
+import { confirmAlert } from 'react-confirm-alert';
 import * as skin from './skin';
 import { removeInsurance } from '../../actions';
 
@@ -21,7 +22,10 @@ class Tile extends Component {
 
 	tileClickEvent = () => this.setState(prevState => ({ isClicked: !prevState.isClicked}))
 	
-	 deleteInsurance = insurance => this.props.removeInsurance(insurance);
+	 deleteInsurance = insurance =>  {
+	 	window.confirm("Hey, are you sure about this?");
+		this.props.removeInsurance(insurance);
+	} 
 
   	render() {
 	  	const { title, premium, removeInsurance } = this.props;

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import FontAwesome from 'react-fontawesome';
-import PropTypes from 'prop-types';
 import EmojiImage from '../../images/confused_face.png';
 import * as skin from './skin';
 
