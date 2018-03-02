@@ -40,9 +40,9 @@ Dashboard.propTypes = {
   isBackgroundRed: PropTypes.bool,
 };
 
-// const mapStateToProps = state => ({
-//   insurancesL: state.insurances.data,
-// });
+const mapStateToProps = state => ({
+  currentUserInsurances: state.currentUser.data,
+});
 
 const mapDispacthToProps = {
   fetchInsurances,

@@ -5,6 +5,8 @@ import {
   FETCH_INSURANCES,
   FETCH_INSURANCES_IS_LOADING,
   USER_ADD_INSURANCE_IS_LOADING,
+  TOGGLE_MODAL,
+  CALC_TOTAL_PREMIUM,
 } from '../constants';
 import { stripWordFromArrayOfString } from '../utils';
 
@@ -21,18 +23,22 @@ const fetchInsurances = () => (dispatch, state) => {
 
 const addInsurance = e => (dispatch, getState) => {
   e.preventDefault();
+  const { values } = getState().form.newInsurance;
   dispatch({ type: USER_ADD_INSURANCE_IS_LOADING, payload: true });
   // to mimic API latency
   const addDataToTheStore = new Promise((resolve, reject) => {
   	setTimeout(() => {
-	  	const { values } = getState().form.newInsurance;
 	  	dispatch({ type: USER_ADD_INSURANCE, payload: values });
 	  	resolve(true);
-	  }, 2000);
+	  }, 1000);
   });
 
   addDataToTheStore
-    .then(() => dispatch({ type: USER_ADD_INSURANCE_IS_LOADING, payload: false }));
+    .then(() => {
+      dispatch({ type: CALC_TOTAL_PREMIUM });
+      dispatch({ type: USER_ADD_INSURANCE_IS_LOADING, payload: false });
+      dispatch({ type: TOGGLE_MODAL, payload: false });
+    });
 };
 
 

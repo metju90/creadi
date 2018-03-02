@@ -20,7 +20,7 @@ const Input = (props) => {
     options,
     selectable,
   } = props;
-  console.log('hmmm ', selectable, touched, error, warning);
+
   if (selectable) {
     return [
       <InputTitle htmlFor={id}>{capitalizeFirstLetter(name)}:</InputTitle>,

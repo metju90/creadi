@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import { Field } from 'redux-form';
+import { HashLoader } from 'react-spinners';
 import { toggleModal, addInsurance } from '../../actions';
 import insuranceIcon from '../../images/insurance.png';
 import * as skin from './skin';
@@ -22,7 +23,17 @@ const InsuranceForm = ({ ...props }) => {
     isFormFieldsCorrect,
     toggleModal,
     addInsurance,
+    isUserDataAddedInStore,
   } = props;
+
+  if (isUserDataAddedInStore) {
+    return (
+      <Modal open={isOpen} onClose={toggleModal} styles={{ ...modalStlyed }} little>
+        <HashLoader style={{ margin: 'auto' }} />
+      </Modal>
+    );
+  }
+
   return (
     <Modal open={isOpen} onClose={toggleModal} styles={{ ...modalStlyed }} little>
       <Header>
@@ -35,7 +46,7 @@ const InsuranceForm = ({ ...props }) => {
         <HeaderTitle> Add new insurance</HeaderTitle>
       </Header>
       <Form onSubmit={handleSubmit}>
-        <Field component={Input} id="titleID" name="title" options={insuranceList} selectable />
+        <Field component={Input} type="number" id="titleID" name="title" options={insuranceList} selectable />
         <Field component={Input} id="premium" name="premium" placeholder="5,000" />
         <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Send now! </Submit>
       </Form>
@@ -55,6 +66,7 @@ const mapStateToProps = state => ({
   ...state.insurances,
   ...state.modal,
   isFormFieldsCorrect: (state.form.newInsurance && !!state.form.newInsurance.syncErrors),
+  isUserDataAddedInStore: !!state.currentUser.isLoading,
 });
 
 const mapDispacthToProps = {
