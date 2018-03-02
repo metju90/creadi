@@ -19,7 +19,7 @@ const Footer = (props) => {
         {isUserInsuranceEmpty ?
           <AddCTAText onClick={toggleModal} />
 			:
-          <AddCTAButton size="2x" name="plus" onClick={toggleModal} />
+          <AddCTAButton name="plus" onClick={toggleModal} />
         	 }
       </ContentWrapper>
     </FooterWrapper>
