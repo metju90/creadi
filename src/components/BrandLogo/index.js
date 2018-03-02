@@ -7,7 +7,7 @@ const Text = styled.div`${skin.Text}`;
 
 const BrandLogo = props => (
   <Wrapper>
-    <Text>Mysurance</Text>
+    <Text>#Mysurance</Text>
   </Wrapper>
 );
 

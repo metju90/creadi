@@ -1,10 +1,19 @@
 import { css } from 'styled-components';
 
 export const FooterWrapper = () => css`
-	background: white;
+	background: #000;
 	position: fixed;
 	height: 60px;
 	bottom:0;
 	width:100%;
+	color:#fff;
 `;
 
+export const ContentWrapper = () => css`
+	width: 360px;
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+    height: 100%;
+    align-items: center;
+`;

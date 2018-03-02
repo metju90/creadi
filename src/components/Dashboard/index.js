@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Tile from '../Tile';
-import { fetchInsurances, toggleModal } from '../../actions';
-import AddCTA from './AddCTA';
+import { fetchInsurances } from '../../actions';
 import EmptyMessage from './EmptyMessage';
 import * as skin from './skin';
 
@@ -23,19 +22,26 @@ class Dashboard extends Component {
   render() {
   	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
-    const { isBackgroundRed, toggleModal, currentUserInsurances } = this.props;
+    const { isBackgroundRed, currentUserInsurances } = this.props;
     return (
-      <DashboardWrapper isBackgroundRed={isBackgroundRed}>
+      <DashboardWrapper className="container" isBackgroundRed={isBackgroundRed}>
+        <div className="row">
         {!!currentUserInsurances.length ?
             this.renderTiles(currentUserInsurances)
             :
             <EmptyMessage />
           }
-        <AddCTA
-          size="2x"
-          name="plus"
-          onClick={toggleModal}
-        />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          <Tile premium="400" title="testt" />
+          </div>
       </DashboardWrapper>
     );
   }
@@ -51,7 +57,6 @@ const mapStateToProps = state => ({
 
 const mapDispacthToProps = {
   fetchInsurances,
-  toggleModal,
 };
 
 export default connect(mapStateToProps, mapDispacthToProps)(Dashboard);

@@ -30,7 +30,7 @@ const addInsurance = e => (dispatch, getState) => {
   	setTimeout(() => {
 	  	dispatch({ type: USER_ADD_INSURANCE, payload: values });
 	  	resolve(true);
-	  }, 1000);
+	  }, 2500);
   });
 
   addDataToTheStore

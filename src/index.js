@@ -12,8 +12,6 @@ import globalCSS from './theme/global.css';
 const getInitiatedStore = () => {
   storeInit();
   registerReducer;
-  console.log('gesu ommu??!');
-
   return getStore();
 };
 const store = getInitiatedStore();

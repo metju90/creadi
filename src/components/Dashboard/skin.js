@@ -6,18 +6,8 @@ export const Dashboard = () => css`
   padding: 10px;
   display: flex;
   justify-content: space-around;  
-  margin: 40px;
   position: relative;
-`;
-
-export const AddNewButton = ({ theme }) => css`
-    position: absolute;
-    background: ${theme.buttonSuccess};
-    border-radius: 50%;
-    bottom: 0;
-    right: 0;
-    padding: 15px;
-    cursor: pointer;
+  height: 100%;
 `;
 
 export const Text = () => css`
@@ -27,6 +17,7 @@ export const Text = () => css`
 
 export const Wrapper = () => css`
   text-align: center;
+  margin: auto;
 `;
 
 export const Emoji = () => css`

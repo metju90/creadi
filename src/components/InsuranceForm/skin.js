@@ -60,9 +60,6 @@ export const Submit = ({ theme }) => css`
     &:disabled {
       background: rgba(0,0,0,0.5);
       color: #fff;;
-    }
-
-    &:hover {
       cursor: not-allowed;
     }
 `;

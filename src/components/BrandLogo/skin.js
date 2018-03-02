@@ -6,6 +6,7 @@ export const Wrapper = () => css`
 	height: 60px;
 	top:0;
 	width:100%;
+	z-index:2;
 `;
 
 export const Text = () => css`
@@ -13,5 +14,5 @@ export const Text = () => css`
     font-family: 'Indie Flower',cursive;
     font-size: 50px;
     letter-spacing: 10px;
-    padding: 25px;
+    padding: 0 25px;
 `;
