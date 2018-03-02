@@ -3,7 +3,6 @@ import { USER_ADD_INSURANCE, CALC_TOTAL_PREMIUM, USER_ADD_INSURANCE_IS_LOADING }
 
 const sum = (total, num) => total + num;
 
-
 const sumUpPremium = (insurances, currentTotalPremium) => insurances
   .map(i => Number(i.premium))
   .reduce((totalPremium, premium, index) => totalPremium + premium, 0);

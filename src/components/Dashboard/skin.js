@@ -19,3 +19,15 @@ export const AddNewButton = ({ theme }) => css`
     padding: 15px;
     cursor: pointer;
 `;
+
+export const Text = () => css`
+  font-size: 70px;
+  font-weight: 400;
+`;
+
+export const Wrapper = () => css`
+  text-align: center;
+`;
+
+export const Emoji = () => css`
+`;

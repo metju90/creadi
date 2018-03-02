@@ -46,7 +46,7 @@ const InsuranceForm = ({ ...props }) => {
         <HeaderTitle> Add new insurance</HeaderTitle>
       </Header>
       <Form onSubmit={handleSubmit}>
-        <Field component={Input} type="number" id="titleID" name="title" options={insuranceList} selectable />
+        <Field component={Input} type="number" id="title" name="title" options={insuranceList} selectable />
         <Field component={Input} id="premium" name="premium" placeholder="5,000" />
         <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Send now! </Submit>
       </Form>

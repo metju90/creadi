@@ -7,7 +7,7 @@ const InputTitle = styled.label`${skin.InputTitle}`;
 const StyledInput = styled.input`${skin.Input}`;
 const Select = styled.select`${skin.Select}`;
 const SelectWrapper = styled.div`${skin.SelectWrapper}`;
-const buildOptions = options => options.map((o, i) => <option key={i} value={o.pageid}>{o.title}</option>);
+const buildOptions = options => options.map((o, i) => <option key={i} value={o.title}>{o.title}</option>);
 
 
 const Input = (props) => {

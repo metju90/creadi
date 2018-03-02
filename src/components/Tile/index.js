@@ -10,7 +10,7 @@ const Premium = styled.span`${skin.Premium}`;
 const Tile = props => (
   <TileWrapper className="col-md-3">
     <Title>{props.title}</Title>
-    <Premium>{props.premium}</Premium>
+    <Premium>{`CHF ${props.premium}`}</Premium>
   </TileWrapper>
 );
 

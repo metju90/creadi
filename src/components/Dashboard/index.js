@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Tile from '../Tile';
 import { fetchInsurances, toggleModal } from '../../actions';
 import AddCTA from './AddCTA';
+import EmptyMessage from './EmptyMessage';
 import * as skin from './skin';
 
 const DashboardWrapper = styled.div`${skin.Dashboard};`;
@@ -17,15 +18,19 @@ class Dashboard extends Component {
   	}
   }
 
+  renderTiles = tiles => tiles.map(t => <Tile {...t} />)
+
   render() {
   	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
-    const { isBackgroundRed, toggleModal, insurances } = this.props;
+    const { isBackgroundRed, toggleModal, currentUserInsurances } = this.props;
     return (
       <DashboardWrapper isBackgroundRed={isBackgroundRed}>
-        {}
-        <Tile title="Atlas" premium="CHF 50" />
-        <Tile title="Mamo" premium="CHF 130" />
+        {!!currentUserInsurances.length ?
+            this.renderTiles(currentUserInsurances)
+            :
+            <EmptyMessage />
+          }
         <AddCTA
           size="2x"
           name="plus"
@@ -41,7 +46,7 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  currentUserInsurances: state.currentUser.data,
+  currentUserInsurances: state.currentUser.insurances,
 });
 
 const mapDispacthToProps = {
@@ -49,4 +54,4 @@ const mapDispacthToProps = {
   toggleModal,
 };
 
-export default connect(null, mapDispacthToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispacthToProps)(Dashboard);
