@@ -13,39 +13,50 @@ import Form from './Form';
 const HeaderTitle = styled.span`${skin.HeaderTitle}`;
 const Submit = styled.button`${skin.Submit}`;
 
-const InsuranceForm = (props) => {
-  const {
-    isOpen,
-    insuranceList,
-    handleSubmit,
-    submitting,
-    isFormFieldsCorrect,
-    toggleModal,
-    addInsurance,
-    isUserDataAddedInStore,
-  } = props;
-
+const InsuranceForm = ({
+  isOpen,
+  insuranceList,
+  handleSubmit,
+  isFormFieldsCorrect,
+  toggleModal,
+  addInsurance,
+}) => {
+  // There seems to be an incompatbility issue with
+  // the Modal I am using and CSS in JSS. The following
+  // is a workaround.
+  const isSmallScreen = window.screen.width < 768;
+  const modalCss = isSmallScreen ? modalSmallScreenStyle : modalBigScreenStyle;
   return (
-    <Modal open={isOpen} onClose={toggleModal} styles={{ ...modalStlyed }} little>
+    <Modal open={isOpen} onClose={toggleModal} styles={{ ...modalCss }} little>
       <Header>
         <img
           width="35px"
           height="35px"
-          style={{ marginRight: '10px' }}
+          style={{ margin: '10px 15px 16px 0px' }}
           src={insuranceIcon}
         />
         <HeaderTitle> Add new insurance</HeaderTitle>
       </Header>
       <Form onSubmit={handleSubmit}>
         <Field component={Input} type="number" id="title" name="title" options={insuranceList} selectable />
-        <Field component={Input} id="premium" name="premium" placeholder="5,000" />
-        <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Send now! </Submit>
+        <Field component={Input} id="premium" name="premium" placeholder="Enter amount" />
+        <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Add policy</Submit>
       </Form>
     </Modal>
   );
 };
 
-const modalStlyed = {
+// The following two objects can be refactored.
+// Repetitive code.
+const modalSmallScreenStyle = {
+  modal: {
+    width: '100%',
+    textAlign: 'center',
+    padding: '30px',
+    height: '100%',
+  },
+};
+const modalBigScreenStyle = {
   modal: {
     width: '400px',
     textAlign: 'center',
@@ -53,11 +64,11 @@ const modalStlyed = {
   },
 };
 
+
 const mapStateToProps = state => ({
   ...state.insurances,
   ...state.modal,
   isFormFieldsCorrect: (state.form.newInsurance && !!state.form.newInsurance.syncErrors),
-  isUserDataAddedInStore: !!state.currentUser.isLoading,
 });
 
 const mapDispacthToProps = {

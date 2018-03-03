@@ -8,11 +8,21 @@ export const Dashboard = () => css`
   justify-content: space-around;  
   position: relative;
   height: 100%;
+  margin-top: 50px;
+
+  @media (min-width: 768px) {
+    margin-top: 0px;
+  }
+
 `;
 
 export const Text = () => css`
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 400;
+
+   @media (min-width: 768px) {
+    font-size: 70px;
+  }
 `;
 
 export const Wrapper = () => css`
@@ -31,7 +41,12 @@ export const FullPageLoader = () => css`
   height: 100%;
   background: #fff;
   display: flex;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .3s;
   z-index: 1;
+`;
+
+export const LogoWrapper = () => css`
+  margin: auto;
+  textAlign: center;
 `;
