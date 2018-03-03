@@ -18,11 +18,9 @@ const InsuranceForm = (props) => {
     isOpen,
     insuranceList,
     handleSubmit,
-    submitting,
     isFormFieldsCorrect,
     toggleModal,
     addInsurance,
-    isUserDataAddedInStore,
   } = props;
 
   return (

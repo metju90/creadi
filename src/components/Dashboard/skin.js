@@ -8,11 +8,21 @@ export const Dashboard = () => css`
   justify-content: space-around;  
   position: relative;
   height: 100%;
+  margin-top: 50px;
+
+  @media (min-width: 768px) {
+    margin-top: 0px;
+  }
+
 `;
 
 export const Text = () => css`
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 400;
+
+   @media (min-width: 768px) {
+    font-size: 70px;
+  }
 `;
 
 export const Wrapper = () => css`

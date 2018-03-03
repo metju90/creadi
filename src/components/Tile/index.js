@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
 import { connect } from 'react-redux';
-import { confirmAlert } from 'react-confirm-alert';
 import * as skin from './skin';
 import { removeInsurance } from '../../actions';
 
@@ -28,7 +27,7 @@ class Tile extends Component {
 	} 
 
   	render() {
-	  	const { title, premium, removeInsurance } = this.props;
+	  	const { title, premium } = this.props;
 	  	const { isClicked } = this.state;
 	    return (
 	      <Wrapper  onClick={this.tileClickEvent} >
