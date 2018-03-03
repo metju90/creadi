@@ -41,7 +41,7 @@ export const FullPageLoader = () => css`
   height: 100%;
   background: #fff;
   display: flex;
-  opacity: 0;
+  opacity: 1;
   transition: opacity .3s;
   z-index: 1;
 `;

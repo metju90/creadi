@@ -29,14 +29,14 @@ const InsuranceForm = (props) => {
         <img
           width="35px"
           height="35px"
-          style={{ marginRight: '10px' }}
+          style={{ margin: '10px 15px 16px 0px' }}
           src={insuranceIcon}
         />
         <HeaderTitle> Add new insurance</HeaderTitle>
       </Header>
       <Form onSubmit={handleSubmit}>
         <Field component={Input} type="number" id="title" name="title" options={insuranceList} selectable />
-        <Field component={Input} id="premium" name="premium" placeholder="5,000" />
+        <Field component={Input} id="premium" name="premium" placeholder="Enter amount" />
         <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Send now! </Submit>
       </Form>
     </Modal>

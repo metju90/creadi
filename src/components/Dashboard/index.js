@@ -33,19 +33,19 @@ class Dashboard extends Component {
   	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
     const { isBackgroundRed, currentUserInsurances, isAnythingLoading } = this.props;
-   return (
+    console.log('rerenderringgggggggg');
+    if (isAnythingLoading) {
+        return <FullPageLoader />
+    }
+
+    return (
       <DashboardWrapper className="container" isBackgroundRed={isBackgroundRed}>
-        <FullPageLoader style={isAnythingLoading ? opacity : {}} />
         <div className="row" style={{margin: "auto"}}>
         {currentUserInsurances.length ? this.renderTiles(currentUserInsurances) : <EmptyMessage />}
         </div>
       </DashboardWrapper>
     );
   }
-}
-
-const opacity = {
-  opacity: "1 !important;"
 }
 
 Dashboard.propTypes = {
