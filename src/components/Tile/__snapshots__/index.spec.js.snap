@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` Tile Component  CSS class changes when hovered 1`] = `null`;
+
+exports[`Login Component  CSS class changes when hovered 1`] = `null`;

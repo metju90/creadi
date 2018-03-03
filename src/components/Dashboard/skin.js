@@ -45,3 +45,8 @@ export const FullPageLoader = () => css`
   transition: opacity .3s;
   z-index: 1;
 `;
+
+export const LogoWrapper = () => css`
+  margin: auto;
+  textAlign: center;
+`;

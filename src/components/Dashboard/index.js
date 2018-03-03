@@ -10,12 +10,12 @@ import * as skin from './skin';
 
 const DashboardWrapper = styled.div`${skin.Dashboard};`;
 const FullPageLoaderWrapper = styled.div`${skin.FullPageLoader}`;
-
+const LogoWrapper = styled.div`${skin.LogoWrapper}`;
 const FullPageLoader = ({props}) => (
     <FullPageLoaderWrapper {...props} >
-        <div style={{margin:"auto"}}>
+        <LogoWrapper>
             <HashLoader  size="80" color="#000" />
-        </div>
+        </LogoWrapper>
     </FullPageLoaderWrapper>
   );
 
@@ -33,7 +33,6 @@ class Dashboard extends Component {
   	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
     const { isBackgroundRed, currentUserInsurances, isAnythingLoading } = this.props;
-    console.log('rerenderringgggggggg');
     if (isAnythingLoading) {
         return <FullPageLoader />
     }
