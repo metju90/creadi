@@ -1,8 +1,5 @@
 import { css } from 'styled-components';
 
-export const Wrapper = () => css`
-`;
-
 export const Text = () => css`
 	font-size: 12px;
 `;

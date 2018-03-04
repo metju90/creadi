@@ -11,18 +11,19 @@ const Balance = ({ isAnythingLoading, balance }) => {
   const textToRender = isAnythingLoading ? 'Updating...' : `CHF ${balance}`;
   return (
     <Wrapper>
-      {balance
-      	? (<BalanceText>
-			Insurance expenses:
-        <div>{textToRender}</div>
-      </BalanceText>)
-	 	: <Text>We are worrying about you.</Text> }
+      {balance ?
+                (<BalanceText>
+        			   Insurance expenses:
+                  <div>{textToRender}</div>
+                </BalanceText>)
+	 	           :
+                <Text>We are worrying about you.</Text>}
 
     </Wrapper>
   );
 };
 const mapStateToProps = state => ({
-  	balance: state.currentUser.totalPremium || undefined,
+  balance: state.currentUser.totalPremium || undefined,
   isAnythingLoading: state.currentUser.isLoading || state.insurances.isLoading,
 });
 export default connect(mapStateToProps, null)(Balance);

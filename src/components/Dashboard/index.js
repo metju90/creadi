@@ -33,6 +33,7 @@ class Dashboard extends Component {
   	// isBackgroundRed prop is being passed
   	// to test storybook with a variant.
     const { isBackgroundRed, currentUserInsurances, isAnythingLoading } = this.props;
+    
     if (isAnythingLoading) {
         return <FullPageLoader />
     }
