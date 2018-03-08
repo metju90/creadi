@@ -14,7 +14,7 @@ const LogoWrapper = styled.div`${skin.LogoWrapper}`;
 const FullPageLoader = ({props}) => (
     <FullPageLoaderWrapper {...props} >
         <LogoWrapper>
-            <HashLoader  size="80" color="#000" />
+            <HashLoader  size={80} color="#000" />
         </LogoWrapper>
     </FullPageLoaderWrapper>
   );
@@ -26,8 +26,8 @@ class Dashboard extends Component {
   		fetchInsurances();
   	}
   }
-
-  renderTiles = insurances => insurances.map(t => <Tile {...t} />)
+  // 
+  renderTiles = insurances => insurances.map((insurance, index) => <Tile key={index} {...insurance} />)
 
   render() {
   	// isBackgroundRed prop is being passed
@@ -39,7 +39,7 @@ class Dashboard extends Component {
 
     return (
       <DashboardWrapper className="container" isBackgroundRed={isBackgroundRed}>
-        <div className="row" style={{margin: "auto"}}>
+        <div className="row" style={{margin: "auto", textAlign: "center"}}>
         {currentUserInsurances.length ? this.renderTiles(currentUserInsurances) : <EmptyMessage />}
         </div>
       </DashboardWrapper>
