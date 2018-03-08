@@ -39,7 +39,7 @@ const InsuranceForm = ({
       </Header>
       <Form onSubmit={handleSubmit}>
         <Field component={Input} type="number" id="title" name="title" options={insuranceList} selectable />
-        <Field component={Input} id="premium" name="premium" placeholder="Enter amount" />
+        <Field component={Input} id="premium" type="number" name="premium" placeholder="Enter amount" />
         <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Add policy</Submit>
       </Form>
     </Modal>
