@@ -6,8 +6,4 @@ export const Text = () => css`
     font-size: 40px;
     letter-spacing: 10px;
     padding: 0 25px;
-
-    @media (min-width: 768px) {
-    	font-size: 50px;
-    }
 `;
