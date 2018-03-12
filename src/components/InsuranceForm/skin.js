@@ -19,14 +19,12 @@ export const Form = () => css`
 
 export const Input = () => css`
     border: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #000;
     width: 100%;
-    margin-top: 10px;
     outline: none;
-    background: #17161c;
+    background: transparent;
     height: 30px;
-    padding: 4px;
-    color:#fff;
+    color:#000;
 
 `;
 
@@ -36,7 +34,7 @@ export const HeaderTitle = () => css`
 `;
 
 export const InputTitle = () => css`
-	margin-top: 30px;
+	  margin: 30px 0 20px;
     font-weight: 500;
     font-size: 16px;
     display: block;
@@ -44,7 +42,7 @@ export const InputTitle = () => css`
 
 export const Submit = ({ theme }) => css`
     background: ${theme.buttonSuccess};
-	text-transform: uppercase;
+	  text-transform: uppercase;
     margin-top: 20px;
     padding: 10px;
     border-radius: 2px;
@@ -67,20 +65,17 @@ export const Select = () => css`
     background: transparent;
    border: none;
    font-size: 14px;
-   height: 29px;
-   padding: 5px;
-   width: 260px;
+   width:100%;
    cursor: pointer;
+   outline: none;
+   margin-left: -7px;
 `;
 
 export const SelectWrapper = () => css`
-    background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
-   height: 29px;
-   overflow: hidden;
-   width: 240px;
-   background-color: #17161c;
-    -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-    color:#fff;
+   height: 30px;
+   color:#000;
+   border-bottom: 2px solid #000;
+   &:focus {
+     border:none;
+   }
 `;
