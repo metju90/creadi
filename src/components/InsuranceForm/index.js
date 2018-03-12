@@ -37,7 +37,7 @@ const InsuranceForm = ({
         />
         <HeaderTitle> Add new insurance</HeaderTitle>
       </Header>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} autoComplete="off">
         <Field component={Input} type="number" id="title" name="title" options={insuranceList} selectable />
         <Field component={Input} id="premium" type="number" name="premium" placeholder="Enter amount" />
         <Submit onClick={addInsurance} type="submit" disabled={isFormFieldsCorrect}> Add policy</Submit>
