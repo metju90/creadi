@@ -11,7 +11,7 @@ const sumUpPremium = insurances => insurances
 
 export default function (state = {
   insurances: [],
-  totalPremium: undefined,
+  totalPremium: 0,
   isLoading: false,
 }, action = {}) {
   switch (action.type) {
@@ -29,11 +29,10 @@ export default function (state = {
         isLoading: action.payload,
       };
     case USER_REMOVE_INSURANCE:
-      console.log(action.payload);
       return {
         ...state,
         insurances: action.payload.insurances,
-        totalPremium: action.payload.premium,
+        totalPremium: action.payload.totalPremium,
       };
     case CALC_TOTAL_PREMIUM:
       return {

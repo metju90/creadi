@@ -15,7 +15,7 @@ const Slider = styled.div`${skin.Slider}`;
 
 class Tile extends Component {
 
-	state = { 
+	state = {
 		isClicked:false,
 	}
 

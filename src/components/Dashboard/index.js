@@ -27,7 +27,7 @@ class Dashboard extends Component {
   	}
   }
   // 
-  renderTiles = insurances => insurances.map((insurance, index) => <Tile key={index} {...insurance} />)
+  renderTiles = (insurance, index) => <Tile key={index} {...insurance} />
 
   render() {
   	// isBackgroundRed prop is being passed
@@ -40,7 +40,7 @@ class Dashboard extends Component {
     return (
       <DashboardWrapper className="container" isBackgroundRed={isBackgroundRed}>
         <div className="row" style={{margin: "auto", textAlign: "center"}}>
-        {currentUserInsurances.length ? this.renderTiles(currentUserInsurances) : <EmptyMessage />}
+        {currentUserInsurances.length ?  currentUserInsurances.map(this.renderTiles) : <EmptyMessage />}
         </div>
       </DashboardWrapper>
     );
