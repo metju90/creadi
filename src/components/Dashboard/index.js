@@ -27,7 +27,7 @@ class Dashboard extends Component {
   	}
   }
   // 
-  renderTiles = (insurance, index) => <Tile key={index} {...insurance} />
+  renderTiles = (insurance, index) => <Tile key={index} index={index} {...insurance} />
 
   render() {
   	// isBackgroundRed prop is being passed

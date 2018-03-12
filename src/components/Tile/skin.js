@@ -1,12 +1,18 @@
 import { css } from 'styled-components';
 
 export const TileWrapper = ({ theme }) => {
-  const randomNumber = Math.floor((Math.random() * theme.colorSet.length));
+  const numberOfColors = theme.colorSet.length;
+  const randomNumber = Math.floor((Math.random() * numberOfColors));
 
   return css`
   		text-align: center;
   		cursor: pointer;
-		background: ${theme.colorSet[randomNumber]};
+		background: ${(props) => {
+					    if (props.index > numberOfColors) {
+					      return theme.colorSet[randomNumber];
+					    }
+					    return theme.colorSet[props.index];
+					  }};
 		border-radius: 0 0 0 15px;
 		background-image: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.2) 100%);
 		width:250px;
