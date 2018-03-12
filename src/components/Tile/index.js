@@ -38,8 +38,8 @@ class Tile extends Component {
 	  	const { isClicked } = this.state;
 	    return (
 	      <Wrapper  onClick={this.tileClickEvent} >
-	        <Slider className={isClicked ? 'TestingClass' : ''}  style={ isClicked ? cssTransition : {}}>
-		        <TileWrapper index={index} >
+	        <Slider style={ isClicked ? cssTransition : {}}>
+		        <TileWrapper isClicked={isClicked}  index={index} >
 		          <Title>{title}</Title>
 		          <Premium>{`CHF ${premium}`}</Premium>
 		        </TileWrapper>

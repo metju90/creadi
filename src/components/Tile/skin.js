@@ -6,7 +6,7 @@ export const TileWrapper = ({ theme }) => {
 
   return css`
   		text-align: center;
-  		cursor: pointer;
+  		cursor: ${props => (props.isClicked ? 'e-resize' : 'pointer')};
 		background: ${(props) => {
 					    if (props.index > numberOfColors) {
 					      return theme.colorSet[randomNumber];
