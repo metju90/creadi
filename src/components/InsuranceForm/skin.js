@@ -47,10 +47,10 @@ export const Submit = ({ theme }) => css`
     padding: 10px;
     border-radius: 2px;
     width: 140px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    box-shadow: 0 0 2px rgba(0,0,0,0.4);
     float: right;
     outline:none;
-    transition: color .3s, background .3s;
+    transition: color .3s, background .3s, transform .3s;
     cursor: pointer;
     color:#fff;
     
@@ -58,6 +58,15 @@ export const Submit = ({ theme }) => css`
       background: rgba(0,0,0,0.5);
       color: #fff;;
       cursor: not-allowed;
+    }
+
+    &:active {
+      transform: translateY(4px);
+    }
+
+
+    &:hover:enabled {
+      background: #3e8e41;
     }
 `;
 
