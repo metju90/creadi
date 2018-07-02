@@ -15,8 +15,8 @@ const fetchInsurances = () => (dispatch, state) => {
   dispatch({ type: FETCH_INSURANCES_IS_LOADING, payload: true });
   axios.get(API_URL)
     .then(res => dispatch({
-    	type: FETCH_INSURANCES,
     	payload: stripWordFromArrayOfString('Category:', res.data.query.categorymembers, 'title'),
+    	type: FETCH_INSURANCES,
     }))
     .catch(() => dispatch({ type: 'default', payload: state.matches }))
     .finally(() => dispatch({ type: FETCH_INSURANCES_IS_LOADING, payload: false }));

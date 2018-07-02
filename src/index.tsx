@@ -6,8 +6,8 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import { ThemeProvider } from 'styled-components';
 import theme from './theme';
-import bootstrapCSS from './theme/bootstrap.min.css';
-import globalCSS from './theme/global.css';
+import './theme/bootstrap.min.css';
+import './theme/global.css';
 
 const getInitiatedStore = () => {
   storeInit();
@@ -16,7 +16,7 @@ const getInitiatedStore = () => {
 };
 const store = getInitiatedStore();
 
-const getApp = store =>
+const getApp = (store: any) =>
   (<ThemeProvider theme={theme}>
     <Provider store={store}>
       <App />

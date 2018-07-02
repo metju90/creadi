@@ -1,8 +1,8 @@
 
 
-it(' should load insurance data', () => {
+// it(' should load insurance data', () => {
 
-});
+// });
 
 const mockApiData = {
   query: {
