@@ -20,6 +20,9 @@ const FullPageLoader = ({props}) => (
   );
 
 class Dashboard extends Component {
+  componentWillUnmount() {
+    console.log('unmounted bitch!!!');
+  }
   componentDidMount() {
   	const { fetchInsurances } = this.props;
   	if (fetchInsurances) {

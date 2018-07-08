@@ -16,13 +16,10 @@ const Balance = ({ isAnythingLoading, balance }) => {
           ? <BalanceText>
 		          Insurance expenses:
             <div>{textToRender}</div>
-            </BalanceText>
+          </BalanceText>
 	 	     : <Text>We are worrying about you.</Text> }
     </Wrapper>
   );
 };
-const mapStateToProps = state => ({
-  balance: state.currentUser.totalPremium || undefined,
-  isAnythingLoading: state.currentUser.isLoading || state.insurances.isLoading,
-});
-export default connect(mapStateToProps, null)(Balance);
+
+export default Balance;
