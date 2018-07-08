@@ -20,6 +20,7 @@ const FullPageLoader = ({props}) => (
   );
 
 class Dashboard extends Component {
+
   componentDidMount() {
   	const { fetchInsurances } = this.props;
   	if (fetchInsurances) {

@@ -11,11 +11,16 @@ const FooterWrapper = styled.div`${skin.FooterWrapper}`;
 const ContentWrapper = styled.div`${skin.ContentWrapper}`;
 
 const Footer = (props) => {
-  const { isUserInsuranceEmpty, toggleModal } = props;
+  const {
+    isUserInsuranceEmpty, toggleModal, balance, isAnythingLoading,
+  } = props;
   return (
     <FooterWrapper>
       <ContentWrapper>
-        <Balance />
+        <Balance
+          isAnythingLoading={isAnythingLoading}
+          balance={balance}
+        />
         <div> | </div>
         {isUserInsuranceEmpty ?
           <AddCTAText onClick={toggleModal} />
@@ -28,6 +33,8 @@ const Footer = (props) => {
 };
 
 const mapStateToProps = state => ({
+  balance: state.currentUser.totalPremium || undefined,
+  isAnythingLoading: state.currentUser.isLoading || state.insurances.isLoading,
   isUserInsuranceEmpty: state.currentUser.insurances.length < 1,
 });
 
